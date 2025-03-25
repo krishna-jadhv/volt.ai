@@ -1,0 +1,23 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.2.0
+2 info using node@v20.17.0
+3 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\.npmrc
+5 silly config load:file:C:\Users\Krishna jadhav\.npmrc
+6 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\etc\npmrc
+7 verbose title npm exec shadcn@latest add dialog
+8 verbose argv "exec" "--" "shadcn@latest" "add" "dialog"
+9 verbose logfile logs-max:10 dir:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%LOCALAPPDATA%\npm-cache\_logs\2025-03-24T14_10_26_659Z-
+10 verbose logfile C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%LOCALAPPDATA%\npm-cache\_logs\2025-03-24T14_10_26_659Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 http fetch GET 200 https://registry.npmjs.org/shadcn 419ms (cache updated)
+15 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+16 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+17 verbose cwd C:\Users\Krishna jadhav\Desktop\Git\Projects\volt
+18 verbose os Windows_NT 10.0.22621
+19 verbose node v20.17.0
+20 verbose npm  v11.2.0
+21 verbose exit 0
+22 info ok

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "shadcn": "^2.4.0-canary.17"
+  },
+  "_npx": {
+    "packages": [
+      "shadcn@latest"
+    ]
+  }
+}
