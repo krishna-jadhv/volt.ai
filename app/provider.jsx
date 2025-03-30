@@ -6,11 +6,23 @@ import Header from '@/components/ui/custom/Header'
 import {MessagesContext} from '@/context/MessagesContext'
 import { UserDetailsContext } from '@/context/UserDetailsContext'
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useConvex } from 'convex/react'
 
 
 function Provider({children}) {
     const [messages, setMessages]= useState();
     const [userDetails, setUserDetails]=useState();
+    const convex = useConvex();
+
+    const IsAuthenticated=async()=>{
+      if(typeof window!==undefined){
+        const user =JSON.parse( localStorage.getItem('user'))
+        const result= await convex.query(api.users.GetUser,{
+          email:user?.email
+        })
+
+      }
+    }
 
   return (
     <div>

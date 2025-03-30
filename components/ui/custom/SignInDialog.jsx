@@ -12,45 +12,62 @@ import { Button } from '../button'
 import { useGoogleLogin } from '@react-oauth/google';
 import { UserDetailsContext } from '@/context/UserDetailsContext';
 import axios from "axios";
+import { useMutation } from 'convex/react';
+import { api } from "@/convex/_generated/api";
+import { v4 as uuidv4 } from 'uuid';
 
 
+function SignInDialog({ openDialog, closeDialog }) {
+    const { userDetails, setUserDetails } = useContext(UserDetailsContext);
+    const CreateUser = useMutation(api.users.CreateUser);
+    const googleLogin = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            console.log(tokenResponse);
+            const userInfo = await axios.get(
+                'https://www.googleapis.com/oauth2/v3/userinfo',
+                { headers: { Authorization: 'Bearer ' + tokenResponse?.access_token } },
+            );
 
-function SignInDialog({openDialog,closeDialog}) {
-const {userDetails, setUserDetails}=useContext(UserDetailsContext)
-    
-const googleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      console.log(tokenResponse);
-      const userInfo = await axios.get(
-        'https://www.googleapis.com/oauth2/v3/userinfo',
-        { headers: { Authorization: 'Bearer '+tokenResponse?.access_token } },
-      );
-  
-      console.log(userInfo);
-      setUserDetails(userInfo?.data)
+            console.log(userInfo);
+            const user = userInfo.data;
+            await CreateUser({
+                name: user?.name,
+                email: user?.email,
+                picture: user?.picture,
+                uid: uuidv4()
+            })
 
-      //save this inside our database
-      closeDialog(false)
-    },
-    onError: errorResponse => console.log(errorResponse),
-  });
-  
+            if (typeof window !== undefined) {
+                localStorage.setItem('user', JSON.stringify(user))
+            }
+
+            setUserDetails(userInfo?.data);
+
+            //save this inside our database
+            closeDialog(false)
+        },
+        onError: errorResponse => console.log(errorResponse),
+    });
+
     return (
 
         <Dialog open={openDialog} onOpenChange={closeDialog}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle></DialogTitle>
-                    <DialogDescription >
+                    <DialogDescription>
                         <div className="flex flex-col text-center items-center justify-center gap-3">
-                            <h2 className='font-bold text-2xl text-white'>{Lookup.SIGNIN_HEADING}</h2>
-                            <p className='mt-2 text-center text-lg '>{Lookup.SIGNIN_SUBHEADING}</p>
+                            <h2 className="font-bold text-2xl text-white">{Lookup.SIGNIN_HEADING}</h2>
+                            <p className="mt-2 text-center text-lg">{Lookup.SIGNIN_SUBHEADING}</p>
                             <Button className="bg-blue-500 text-white hover:bg-blue-400 mt-3"
                                 onClick={googleLogin}
-                            >Sign In With Google</Button>
+                            >
+                                Sign In With Google
+                            </Button>
                             <p>{Lookup.SIGNIn_AGREEMENT_TEXT}</p>
                         </div>
                     </DialogDescription>
+
                 </DialogHeader>
             </DialogContent>
         </Dialog>
