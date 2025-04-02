@@ -1,0 +1,11 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.2.0
+2 info using node@v20.17.0
+3 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\.npmrc
+5 silly config load:file:C:\Users\Krishna jadhav\.npmrc
+6 silly config load:file:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%APPDATA%\npm\etc\npmrc
+7 verbose title npm exec convex dev
+8 verbose argv "exec" "--" "convex" "dev"
+9 verbose logfile logs-max:10 dir:C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%LOCALAPPDATA%\npm-cache\_logs\2025-03-30T06_24_29_411Z-
+10 verbose logfile C:\Users\Krishna jadhav\Desktop\Git\Projects\volt\%LOCALAPPDATA%\npm-cache\_logs\2025-03-30T06_24_29_411Z-debug-0.log
