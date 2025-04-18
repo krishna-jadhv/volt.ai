@@ -17,8 +17,8 @@ function Hero() {
   const { messages, setMessages } = useContext(MessagesContext);
   const { userDetails, setUserDetails } = useContext(UserDetailsContext);
   const [openDialog, setOpenDialog] = useState(false);
-  const CreateWorkspace=useMutation(api.workspace.CreateWorkspace)
-  const router= useRouter()
+  const CreateWorkspace = useMutation(api.workspace.CreateWorkspace)
+  const router = useRouter()
 
 
   const OnGenerate = async (input) => {
@@ -27,16 +27,16 @@ function Hero() {
       return;
     }
 
-    const msg={
+    const msg = {
       role: 'user',
       content: input
     }
 
     setMessages(msg);
 
-    const workspaceId= await CreateWorkspace({
-      user:userDetails._id,
-      messages:[msg]
+    const workspaceId = await CreateWorkspace({
+      user: userDetails._id,
+      messages: [msg]
     });
     console.log(workspaceId);
     router.push(`/main/workspace/${workspaceId}`);
@@ -74,7 +74,7 @@ function Hero() {
           >{suggestion}</h2>
         ))}
       </div>
-      <SignInDialog openDialog={openDialog} closeDialog={(v)=>setOpenDialog(false)}/>
+      <SignInDialog openDialog={openDialog} closeDialog={(v) => setOpenDialog(false)} />
     </div>
   )
 }
